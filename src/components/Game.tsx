@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { Character, GuessResult } from '../types/Character';
-import { characters } from '../data/characters';
+import { allCharacters } from '../data/characters'; // Remova getCharactersByPart se não está usando
 import GuessForm from './GuessForm';
 import GuessHistory from './GuessHistory';
 import VictoryModal from './VictoryModal';
@@ -13,14 +13,15 @@ const Game = () => {
   const [victory, setVictory] = useState(false);
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    setTargetCharacter(characters[randomIndex]);
+    const randomIndex = Math.floor(Math.random() * allCharacters.length);
+    setTargetCharacter(allCharacters[randomIndex]);
   }, []);
 
   const handleGuess = (characterName: string) => {
     if (!targetCharacter) return;
 
-    const guessedCharacter = characters.find(char => 
+    // CORREÇÃO: Use allCharacters em vez de characters
+    const guessedCharacter = allCharacters.find((char: Character) => 
       char.name.toLowerCase() === characterName.toLowerCase()
     );
 
@@ -64,12 +65,12 @@ const Game = () => {
       setVictory(true);
       setGameOver(true);
     }
-    // Remove a verificação de 6 tentativas
   };
 
   const resetGame = () => {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    setTargetCharacter(characters[randomIndex]);
+    // CORREÇÃO: Use allCharacters em vez de characters
+    const randomIndex = Math.floor(Math.random() * allCharacters.length);
+    setTargetCharacter(allCharacters[randomIndex]);
     setGuesses([]);
     setGameOver(false);
     setVictory(false);
@@ -87,7 +88,6 @@ const Game = () => {
 
   return (
     <div className="game-container">
-      {/* Header fixo no topo */}
       <header className="game-header">
         <h1 className="game-title">JOJODLE</h1>
         <p className="game-subtitle">Adivinhe o personagem de JoJo's Bizarre Adventure!</p>
@@ -101,12 +101,10 @@ const Game = () => {
         )}
       </header>
       
-      {/* Formulário fixo abaixo do header */}
       <div className="guess-form-container">
         <GuessForm onGuess={handleGuess} disabled={gameOver} />
       </div>
       
-      {/* Histórico scrollável */}
       <div className="guess-history-container">
         <GuessHistory guesses={guesses} />
       </div>

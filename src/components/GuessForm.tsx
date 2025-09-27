@@ -26,6 +26,7 @@ const GuessForm = ({ onGuess, disabled }: GuessFormProps) => {
         disabled={disabled}
         list="character-suggestions"
         className="guess-input"
+        name='character-name'
       />
       <datalist id="character-suggestions">
         <option value="Jotaro Kujo" />
