@@ -1,4 +1,5 @@
 import type { GuessResult } from '../types/Character';
+import '../styles/components/GuessHistory.css';
 
 interface GuessHistoryProps {
   guesses: GuessResult[];
@@ -8,47 +9,74 @@ const GuessHistory = ({ guesses }: GuessHistoryProps) => {
   if (guesses.length === 0) {
     return (
       <div className="guess-history">
-        <h2>Histórico de Palpites</h2>
-        <p>Nenhum palpite ainda. Faça seu primeiro palpite!</p>
+        <h2 className="history-title">Histórico de Palpites</h2>
+        <div className="empty-state">
+          <p>Nenhum palpite ainda. Faça seu primeiro palpite!</p>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="guess-history">
-      <h2>Seus Palpites</h2>
-      <div className="guesses-grid">
-        {guesses.map((guess, index) => (
-          <div key={index} className="guess-card">
-            <h3>{guess.character.name}</h3>
-            <div className="attributes">
-              <div className={`attribute ${guess.matches.gender ? 'correct' : 'incorrect'}`}>
-                <span>Gênero:</span> {guess.character.gender}
+      <h2 className="history-title">Seus Palpites ({guesses.length})</h2>
+      <div className="guesses-container">
+        <div className="guesses-grid">
+          {guesses.map((guess, index) => (
+            <div key={index} className="guess-card">
+              {/* Adicione a imagem aqui */}
+              <div className="character-header">
+                <img 
+                  src={guess.character.image} 
+                  alt={guess.character.name}
+                  className="character-image"
+                  onError={(e) => {
+                    // Fallback para imagem quebrada
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/images/placeholder.jpg';
+                    target.onerror = null; // Previne loop
+                  }}
+                />
+                <h3 className="character-name">{guess.character.name}</h3>
               </div>
-              <div className={`attribute ${guess.matches.age ? 'correct' : 'incorrect'}`}>
-                <span>Idade:</span> {guess.character.age}
-              </div>
-              <div className={`attribute ${guess.matches.hairColor ? 'correct' : 'incorrect'}`}>
-                <span>Cabelo:</span> {guess.character.hairColor}
-              </div>
-              <div className={`attribute ${guess.matches.nationality ? 'correct' : 'incorrect'}`}>
-                <span>Nacionalidade:</span> {guess.character.nationality}
-              </div>
-              <div className={`attribute ${guess.matches.birthYear ? 'correct' : 'incorrect'}`}>
-                <span>Nascimento:</span> {guess.character.birthYear}
-              </div>
-              <div className={`attribute ${guess.matches.occupation ? 'correct' : 'incorrect'}`}>
-                <span>Ocupação:</span> {guess.character.occupation}
-              </div>
-              <div className={`attribute ${guess.matches.standType ? 'correct' : 'incorrect'}`}>
-                <span>Stand:</span> {guess.character.standType}
-              </div>
-              <div className={`attribute ${guess.matches.firstAppearance ? 'correct' : 'incorrect'}`}>
-                <span>Aparição:</span> {guess.character.firstAppearance}
+              
+              <div className="attributes-grid">
+                <div className={`attribute ${guess.matches.gender ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Gênero:</span>
+                  <span className="attribute-value">{guess.character.gender}</span>
+                </div>
+                <div className={`attribute ${guess.matches.age ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Idade:</span>
+                  <span className="attribute-value">{guess.character.age}</span>
+                </div>
+                <div className={`attribute ${guess.matches.hairColor ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Cabelo:</span>
+                  <span className="attribute-value">{guess.character.hairColor}</span>
+                </div>
+                <div className={`attribute ${guess.matches.nationality ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Nacionalidade:</span>
+                  <span className="attribute-value">{guess.character.nationality}</span>
+                </div>
+                <div className={`attribute ${guess.matches.birthYear ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Nascimento:</span>
+                  <span className="attribute-value">{guess.character.birthYear}</span>
+                </div>
+                <div className={`attribute ${guess.matches.occupation ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Ocupação:</span>
+                  <span className="attribute-value">{guess.character.occupation}</span>
+                </div>
+                <div className={`attribute ${guess.matches.standType ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Stand:</span>
+                  <span className="attribute-value">{guess.character.standType}</span>
+                </div>
+                <div className={`attribute ${guess.matches.firstAppearance ? 'correct' : 'incorrect'}`}>
+                  <span className="attribute-label">Aparição:</span>
+                  <span className="attribute-value">{guess.character.firstAppearance}</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

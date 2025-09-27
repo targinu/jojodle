@@ -1,20 +1,32 @@
 import type { Character } from '../types/Character';
+import '../styles/components/VictoryModal.css';
 
 interface VictoryModalProps {
   victory: boolean;
   targetCharacter: Character;
   onReset: () => void;
+  attempts: number;
 }
 
-const VictoryModal = ({ victory, targetCharacter, onReset }: VictoryModalProps) => {
+const VictoryModal = ({ victory, targetCharacter, onReset, attempts }: VictoryModalProps) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>{victory ? '🎉 Yare Yare Daze! Você acertou! 🎉' : '💀 Muda Muda! Fim de Jogo! 💀'}</h2>
+        <h2 className="modal-title">
+          {victory ? '🎉 Yare Yare Daze! Você acertou! 🎉' : '💀 Muda Muda! Fim de Jogo! 💀'}
+        </h2>
+        
+        {victory && (
+          <div className="victory-stats">
+            <p className="attempts-count">Você acertou em <strong>{attempts}</strong> tentativa{attempts > 1 ? 's' : ''}!</p>
+            {attempts === 1 && <p className="perfect-score">🌟 PERFEITO! Primeira tentativa! 🌟</p>}
+            {attempts <= 3 && attempts > 1 && <p className="great-score">🔥 Excelente! Muito bom! 🔥</p>}
+          </div>
+        )}
         
         <div className="character-reveal">
-          <h3>O personagem era: {targetCharacter.name}</h3>
-          <div className="character-info">
+          <h3 className="reveal-name">O personagem era: {targetCharacter.name}</h3>
+          <div className="character-details">
             <p><strong>Gênero:</strong> {targetCharacter.gender}</p>
             <p><strong>Idade:</strong> {targetCharacter.age}</p>
             <p><strong>Cor do Cabelo:</strong> {targetCharacter.hairColor}</p>

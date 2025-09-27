@@ -26,3 +26,11 @@ export interface GuessResult {
     firstAppearance: boolean;
   };
 }
+
+// Adicione esta interface para o modal
+export interface VictoryModalProps {
+  victory: boolean;
+  targetCharacter: Character;
+  onReset: () => void;
+  attempts: number;
+}

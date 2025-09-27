@@ -1,5 +1,6 @@
 import Game from './components/Game';
-import './App.css';
+import './styles/globals.css';
+import './styles/layouts/App.css';
 
 function App() {
   return (

@@ -1,0 +1,219 @@
+.guess-history {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.history-title {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+  width: 100%;
+  padding: var(--spacing-sm);
+  border-bottom: 2px solid var(--gray-light);
+  background: var(--white);
+}
+
+.guesses-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  max-height: 500px; /* Aumentei para acomodar imagens */
+  overflow-y: auto;
+  padding-right: var(--spacing-sm);
+}
+
+.guesses-grid {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.guess-card {
+  width: 100%;
+  border: 2px solid var(--gray-medium);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease;
+}
+
+.guess-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Novo: Header com imagem e nome */
+.character-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--gray-light);
+}
+
+.character-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  flex-shrink: 0;
+}
+
+.character-name {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: left;
+  flex: 1;
+}
+
+.attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.attribute {
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  min-height: 50px;
+}
+
+.attribute-label {
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.attribute-value {
+  font-weight: 500;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.attribute.correct {
+  background-color: rgba(76, 175, 80, 0.15);
+  border-left: 4px solid var(--correct-color);
+}
+
+.attribute.incorrect {
+  background-color: rgba(244, 67, 54, 0.15);
+  border-left: 4px solid var(--incorrect-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-light);
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--gray-light);
+}
+
+/* Custom scrollbar */
+.guesses-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.guesses-container::-webkit-scrollbar-track {
+  background: var(--gray-light);
+  border-radius: var(--border-radius-sm);
+}
+
+.guesses-container::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: var(--border-radius-sm);
+}
+
+.guesses-container::-webkit-scrollbar-thumb:hover {
+  background: #a52a2a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guess-history {
+    max-width: 100%;
+    padding: var(--spacing-xs) 0;
+  }
+  
+  .history-title {
+    font-size: 1.1rem;
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .guesses-container {
+    max-height: 400px;
+  }
+  
+  .character-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .character-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .character-name {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .attributes-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+  
+  .attribute {
+    padding: var(--spacing-xs);
+    min-height: 45px;
+    font-size: 0.8rem;
+  }
+  
+  .guess-card {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .character-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .character-name {
+    font-size: 1.1rem;
+  }
+  
+  .attribute {
+    flex-direction: column;
+    text-align: center;
+    gap: 3px;
+    min-height: 60px;
+  }
+  
+  .attribute-label, .attribute-value {
+    font-size: 0.75rem;
+  }
+}

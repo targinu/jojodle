@@ -4,6 +4,7 @@ import { characters } from '../data/characters';
 import GuessForm from './GuessForm';
 import GuessHistory from './GuessHistory';
 import VictoryModal from './VictoryModal';
+import '../styles/components/Game.css';
 
 const Game = () => {
   const [targetCharacter, setTargetCharacter] = useState<Character | null>(null);
@@ -12,7 +13,6 @@ const Game = () => {
   const [victory, setVictory] = useState(false);
 
   useEffect(() => {
-    // Seleciona personagem aleatório
     const randomIndex = Math.floor(Math.random() * characters.length);
     setTargetCharacter(characters[randomIndex]);
   }, []);
@@ -26,6 +26,16 @@ const Game = () => {
 
     if (!guessedCharacter) {
       alert("Personagem não encontrado! Tente outro nome.");
+      return;
+    }
+
+    // Verifica se o personagem já foi tentado antes
+    const alreadyGuessed = guesses.some(guess => 
+      guess.character.name.toLowerCase() === characterName.toLowerCase()
+    );
+
+    if (alreadyGuessed) {
+      alert("Você já tentou este personagem! Tente outro.");
       return;
     }
 
@@ -49,13 +59,12 @@ const Game = () => {
     const newGuesses = [...guesses, guessResult];
     setGuesses(newGuesses);
 
-    // Verifica vitória ou derrota
+    // Apenas verifica vitória, sem limite de tentativas
     if (guessedCharacter.name === targetCharacter.name) {
       setVictory(true);
       setGameOver(true);
-    } else if (newGuesses.length >= 6) {
-      setGameOver(true);
     }
+    // Remove a verificação de 6 tentativas
   };
 
   const resetGame = () => {
@@ -67,23 +76,47 @@ const Game = () => {
   };
 
   if (!targetCharacter) {
-    return <div>Carregando...</div>;
+    return (
+      <div className="game-container">
+        <div className="empty-state">
+          <p>Carregando personagem misterioso...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="game-container">
-      <h1>JOJODLE</h1>
-      <p>Adivinhe o personagem de JoJo's Bizarre Adventure!</p>
-      <p>Tentativas restantes: {6 - guesses.length}</p>
+      {/* Header fixo no topo */}
+      <header className="game-header">
+        <h1 className="game-title">JOJODLE</h1>
+        <p className="game-subtitle">Adivinhe o personagem de JoJo's Bizarre Adventure!</p>
+        <div className="attempts-counter">
+          Tentativas: {guesses.length} {victory && "🎉"}
+        </div>
+        {guesses.length > 0 && !victory && (
+          <div className="hint-message">
+            💡 Continue tentando! Tentativas infinitas disponíveis.
+          </div>
+        )}
+      </header>
       
-      <GuessForm onGuess={handleGuess} disabled={gameOver} />
-      <GuessHistory guesses={guesses} />
+      {/* Formulário fixo abaixo do header */}
+      <div className="guess-form-container">
+        <GuessForm onGuess={handleGuess} disabled={gameOver} />
+      </div>
+      
+      {/* Histórico scrollável */}
+      <div className="guess-history-container">
+        <GuessHistory guesses={guesses} />
+      </div>
       
       {gameOver && (
         <VictoryModal 
           victory={victory} 
           targetCharacter={targetCharacter}
           onReset={resetGame}
+          attempts={guesses.length}
         />
       )}
     </div>

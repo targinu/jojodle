@@ -1,0 +1,15 @@
+.App {
+  min-height: 100vh;
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .App {
+    padding: var(--spacing-sm);
+    align-items: flex-start;
+  }
+}

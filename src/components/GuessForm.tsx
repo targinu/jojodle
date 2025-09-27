@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import '../styles/components/GuessForm.css';
 interface GuessFormProps {
   onGuess: (characterName: string) => void;
   disabled: boolean;
@@ -22,9 +22,10 @@ const GuessForm = ({ onGuess, disabled }: GuessFormProps) => {
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Digite o nome do personagem..."
+        placeholder="Digite o nome do personagem... (tentativas infinitas)"
         disabled={disabled}
         list="character-suggestions"
+        className="guess-input"
       />
       <datalist id="character-suggestions">
         <option value="Jotaro Kujo" />
@@ -32,9 +33,12 @@ const GuessForm = ({ onGuess, disabled }: GuessFormProps) => {
         <option value="Joseph Joestar" />
         <option value="Jonathan Joestar" />
         <option value="Giorno Giovanna" />
+        <option value="Josuke Higashikata" />
+        <option value="Jolyne Cujoh" />
+        <option value="Johnny Joestar" />
       </datalist>
-      <button type="submit" disabled={disabled}>
-        {disabled ? 'Jogo Terminado' : 'Adivinhar'}
+      <button type="submit" disabled={disabled} className="guess-button">
+        {disabled ? 'Jogo Terminado - Jogar Novamente' : 'Adivinhar'}
       </button>
     </form>
   );
