@@ -130,21 +130,7 @@
 
 /* Custom scrollbar */
 .guesses-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.guesses-container::-webkit-scrollbar-track {
-  background: var(--gray-light);
-  border-radius: var(--border-radius-sm);
-}
-
-.guesses-container::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: var(--border-radius-sm);
-}
-
-.guesses-container::-webkit-scrollbar-thumb:hover {
-  background: #a52a2a;
+  display: none;
 }
 
 /* Responsive */

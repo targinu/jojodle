@@ -1,4 +1,5 @@
 import type { GuessResult } from '../types/Character';
+import ImageWithFallback from './ImageWithFallback';
 import '../styles/components/GuessHistory.css';
 
 interface GuessHistoryProps {
@@ -24,18 +25,11 @@ const GuessHistory = ({ guesses }: GuessHistoryProps) => {
         <div className="guesses-grid">
           {guesses.map((guess, index) => (
             <div key={index} className="guess-card">
-              {/* Adicione a imagem aqui */}
               <div className="character-header">
-                <img 
-                  src={guess.character.image} 
+                <ImageWithFallback
+                  src={guess.character.image}
                   alt={guess.character.name}
                   className="character-image"
-                  onError={(e) => {
-                    // Fallback para imagem quebrada
-                    const target = e.target as HTMLImageElement;
-                    target.src = '/images/placeholder.jpg';
-                    target.onerror = null; // Previne loop
-                  }}
                 />
                 <h3 className="character-name">{guess.character.name}</h3>
               </div>

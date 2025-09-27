@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
-import type { Character, GuessResult } from '../types/Character';
-import { allCharacters } from '../data/characters'; // Remova getCharactersByPart se não está usando
-import GuessForm from './GuessForm';
-import GuessHistory from './GuessHistory';
-import VictoryModal from './VictoryModal';
-import '../styles/components/Game.css';
+import { useState, useEffect } from "react";
+import type { Character, GuessResult } from "../types/Character";
+import { allCharacters } from "../data/characters"; // Remova getCharactersByPart se não está usando
+import GuessForm from "./GuessForm";
+import GuessHistory from "./GuessHistory";
+import VictoryModal from "./VictoryModal";
+import "../styles/components/Game.css";
 
 const Game = () => {
-  const [targetCharacter, setTargetCharacter] = useState<Character | null>(null);
+  const [targetCharacter, setTargetCharacter] = useState<Character | null>(
+    null
+  );
   const [guesses, setGuesses] = useState<GuessResult[]>([]);
   const [gameOver, setGameOver] = useState(false);
   const [victory, setVictory] = useState(false);
@@ -21,8 +23,9 @@ const Game = () => {
     if (!targetCharacter) return;
 
     // CORREÇÃO: Use allCharacters em vez de characters
-    const guessedCharacter = allCharacters.find((char: Character) => 
-      char.name.toLowerCase() === characterName.toLowerCase()
+    const guessedCharacter = allCharacters.find(
+      (char: Character) =>
+        char.name.toLowerCase() === characterName.toLowerCase()
     );
 
     if (!guessedCharacter) {
@@ -31,8 +34,9 @@ const Game = () => {
     }
 
     // Verifica se o personagem já foi tentado antes
-    const alreadyGuessed = guesses.some(guess => 
-      guess.character.name.toLowerCase() === characterName.toLowerCase()
+    const alreadyGuessed = guesses.some(
+      (guess) =>
+        guess.character.name.toLowerCase() === characterName.toLowerCase()
     );
 
     if (alreadyGuessed) {
@@ -49,12 +53,13 @@ const Game = () => {
       birthYear: guessedCharacter.birthYear === targetCharacter.birthYear,
       occupation: guessedCharacter.occupation === targetCharacter.occupation,
       standType: guessedCharacter.standType === targetCharacter.standType,
-      firstAppearance: guessedCharacter.firstAppearance === targetCharacter.firstAppearance,
+      firstAppearance:
+        guessedCharacter.firstAppearance === targetCharacter.firstAppearance,
     };
 
     const guessResult: GuessResult = {
       character: guessedCharacter,
-      matches
+      matches,
     };
 
     const newGuesses = [...guesses, guessResult];
@@ -88,30 +93,32 @@ const Game = () => {
 
   return (
     <div className="game-container">
-      <header className="game-header">
-        <h1 className="game-title">JOJODLE</h1>
-        <p className="game-subtitle">Adivinhe o personagem de JoJo's Bizarre Adventure!</p>
+  
+      <div className="guess-form-container">
+        <GuessForm
+          onGuess={handleGuess}
+          disabled={gameOver}
+          guesses={guesses} // ← Passe as guesses como prop
+        />
+      </div>
+        <div className="game-attempts">
         <div className="attempts-counter">
           Tentativas: {guesses.length} {victory && "🎉"}
         </div>
         {guesses.length > 0 && !victory && (
           <div className="hint-message">
-            💡 Continue tentando! Tentativas infinitas disponíveis.
+            💡 Continue tentando!
           </div>
         )}
-      </header>
-      
-      <div className="guess-form-container">
-        <GuessForm onGuess={handleGuess} disabled={gameOver} />
       </div>
-      
+
       <div className="guess-history-container">
         <GuessHistory guesses={guesses} />
       </div>
-      
+
       {gameOver && (
-        <VictoryModal 
-          victory={victory} 
+        <VictoryModal
+          victory={victory}
           targetCharacter={targetCharacter}
           onReset={resetGame}
           attempts={guesses.length}
