@@ -1,7 +1,7 @@
 import type { Character } from '../../types/Character';
 
 // Importações das imagens
-import jotaroImage from '../../assets/images/characters/part3/jotaro.png';
+import jotaroImage from '../../assets/images/characters/part3/Jotaro.png';
 import josephPart3 from '../../assets/images/characters/part3/JosephJoestar.png';
 import avdolPart3 from '../../assets/images/characters/part3/MuhammadAvdol.png';
 import kakyoinPart3 from '../../assets/images/characters/part3/Kakyoin.png';
@@ -43,7 +43,7 @@ import malenaPart3 from '../../assets/images/characters/part3/MalenaAvAnim.png';
 import kennyGPart3 from '../../assets/images/characters/part3/KennyAvAnim.png';
 import nukesakuPart3 from '../../assets/images/characters/part3/NukesakuAvAnim.png';
 import wilsonPhillipsPart3 from '../../assets/images/characters/part3/WilsonPhillipsAvAnim.png';
-import cheriePolnareffPart3 from '../../assets/images/characters/part3/ChérieAvAnim.png';
+import cheriePolnareffPart3 from '../../assets/images/characters/part3/CherieAvAnim.png';
 
 export const part3Characters: Character[] = [
   {
