@@ -7,6 +7,7 @@ interface GuessHistoryProps {
 }
 
 const GuessHistory = ({ guesses }: GuessHistoryProps) => {
+  /*
   // Labels para os atributos
   const attributeLabels = {
     gender: "Gênero",
@@ -18,6 +19,7 @@ const GuessHistory = ({ guesses }: GuessHistoryProps) => {
     standType: "Stand",
     firstAppearance: "1ª Aparição"
   };
+  */
 
   if (guesses.length === 0) {
     return (
