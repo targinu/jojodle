@@ -11,111 +11,78 @@
   text-align: center;
   color: var(--primary-color);
   font-size: 1.3rem;
-  margin-bottom: var(--spacing-md);
   font-weight: 700;
   width: 100%;
   padding: var(--spacing-sm);
-  border-bottom: 2px solid var(--gray-light);
   background: var(--white);
 }
 
 .guesses-container {
+  min-width: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  max-height: 500px; /* Aumentei para acomodar imagens */
-  overflow-y: auto;
-  padding-right: var(--spacing-sm);
-}
-
-.guesses-grid {
   display: flex;
   flex-direction: column-reverse;
-  gap: var(--spacing-md);
-  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
-.guess-card {
-  width: 100%;
-  border: 2px solid var(--gray-medium);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-md);
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease;
+/* Custom scrollbar */
+.guesses-container::-webkit-scrollbar {
+  display: none;
 }
 
-.guess-card:hover {
-  transform: translateY(-2px);
-}
-
-/* Novo: Header com imagem e nome */
-.character-header {
-  display: flex;
+/* DESKTOP: Layout em grid */
+.guess-row {
+  display: grid;
+  grid-template-columns: 60px repeat(8, 1fr); /* imagem + 8 colunas */
   align-items: center;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--gray-light);
+  gap: 4px;
+  padding: 6px;
+  background: white;
+  border-bottom: 1px solid var(--gray-light);
 }
 
-.character-image {
-  width: 80px;
-  height: 80px;
+.guess-row.header {
+  font-weight: bold;
+  background: var(--gray-light);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.guess-row span,
+.guess-row .guess-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 4px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.guess-image {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--primary-color);
-  flex-shrink: 0;
 }
 
-.character-name {
-  color: var(--primary-color);
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0;
-  text-align: left;
-  flex: 1;
+.correct {
+  background: #2ecc71;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 4px;
 }
 
-.attributes-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-sm);
-  width: 100%;
-}
-
-.attribute {
-  padding: var(--spacing-sm);
-  border-radius: var(--border-radius-sm);
-  font-size: 0.85rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
-  min-height: 50px;
-}
-
-.attribute-label {
-  font-weight: 600;
-  color: var(--text-light);
-  font-size: 0.85rem;
-}
-
-.attribute-value {
-  font-weight: 500;
-  text-align: right;
-  font-size: 0.85rem;
-}
-
-.attribute.correct {
-  background-color: rgba(76, 175, 80, 0.15);
-  border-left: 4px solid var(--correct-color);
-}
-
-.attribute.incorrect {
-  background-color: rgba(244, 67, 54, 0.15);
-  border-left: 4px solid var(--incorrect-color);
+.incorrect {
+  background: #e74c3c;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 4px;
 }
 
 .empty-state {
@@ -128,78 +95,115 @@
   border: 2px solid var(--gray-light);
 }
 
-/* Custom scrollbar */
-.guesses-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* Responsive */
+/* MOBILE: Layout em cards */
 @media (max-width: 768px) {
-  .guess-history {
-    max-width: 100%;
-    padding: var(--spacing-xs) 0;
-  }
-  
-  .history-title {
-    font-size: 1.1rem;
-    padding: var(--spacing-xs);
-    margin-bottom: var(--spacing-sm);
-  }
-  
   .guesses-container {
-    max-height: 400px;
-  }
-  
-  .character-header {
     flex-direction: column;
-    text-align: center;
-    gap: var(--spacing-sm);
+    gap: 12px;
+    padding: 0 8px;
   }
-  
-  .character-image {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .character-name {
-    text-align: center;
-    font-size: 1.2rem;
-  }
-  
-  .attributes-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xs);
-  }
-  
-  .attribute {
-    padding: var(--spacing-xs);
-    min-height: 45px;
-    font-size: 0.8rem;
-  }
-  
-  .guess-card {
-    padding: var(--spacing-sm);
-  }
-}
 
-@media (max-width: 480px) {
-  .character-image {
+  .guess-row.header {
+    display: none; /* esconde cabeçalho no mobile */
+  }
+
+  .guess-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 12px;
+    border: 2px solid var(--gray-light);
+    border-radius: var(--border-radius-md);
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Container para imagem e nome */
+  .guess-header-mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-light);
+    margin-bottom: 8px;
+  }
+
+  .guess-image-mobile {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
   }
-  
-  .character-name {
+
+  .guess-name-mobile {
+    font-weight: 700;
+    color: var(--primary-color);
     font-size: 1.1rem;
   }
-  
-  .attribute {
-    flex-direction: column;
-    text-align: center;
-    gap: 3px;
-    min-height: 60px;
+
+  /* Grid de atributos no mobile */
+  .guess-attributes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    width: 100%;
   }
-  
-  .attribute-label, .attribute-value {
-    font-size: 0.75rem;
+
+  .attribute-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--gray-light);
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid transparent;
+  }
+
+  .attribute-row.correct {
+    border-left-color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+  }
+
+  .attribute-row.incorrect {
+    border-left-color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+  }
+
+  .attribute-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+  }
+
+  .attribute-value {
+    font-weight: 500;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    text-align: right;
+  }
+
+  .attribute-value.correct {
+    width: 50%;
+  }
+
+  .attribute-value.incorrect {
+    width: 50%;
+  }
+
+  /* Esconde elementos do desktop */
+  .guess-row > span:not(.mobile-only),
+  .guess-row > .guess-image-wrapper {
+    display: none;
+  }
+}
+
+/* Desktop - esconde elementos do mobile */
+@media (min-width: 769px) {
+  .guess-header-mobile,
+  .guess-attributes-grid,
+  .attribute-row {
+    display: none;
   }
 }

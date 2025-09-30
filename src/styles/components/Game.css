@@ -1,7 +1,7 @@
 .game-container {
-  max-width: 1000px;
   width: 100%;
-  margin: 0 auto;
+  max-width: none; 
+  margin: 0 auto; 
   background: rgba(255, 255, 255, 0.95);
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xl);
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   min-height: 90vh;
-  max-height: 90vh; /* Limita a altura máxima */
+  min-width: 90vw;
 }
 
 /* Header fixo no topo */
@@ -28,7 +28,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: var(--spacing-lg);
   flex-shrink: 0; /* Mantém fixo */
 }
 

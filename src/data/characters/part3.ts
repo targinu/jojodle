@@ -1,5 +1,49 @@
 import type { Character } from '../../types/Character';
+
+// Importações das imagens
 import jotaroImage from '../../assets/images/characters/part3/jotaro.png';
+import josephPart3 from '../../assets/images/characters/part3/JosephJoestar.png';
+import avdolPart3 from '../../assets/images/characters/part3/MuhammadAvdol.png';
+import kakyoinPart3 from '../../assets/images/characters/part3/Kakyoin.png';
+import polnareffPart3 from '../../assets/images/characters/part3/Polnareff.png';
+import iggyPart3 from '../../assets/images/characters/part3/Iggy.png';
+import dioPart3 from '../../assets/images/characters/part3/Dio.png';
+import grayFlyPart3 from '../../assets/images/characters/part3/GrayFly.png';
+import tennillePart3 from '../../assets/images/characters/part3/Tennille.png';
+import foreverPart3 from '../../assets/images/characters/part3/Forever.png';
+import devoPart3 from '../../assets/images/characters/part3/Devo.png';
+import rubberSoulPart3 from '../../assets/images/characters/part3/RubberSoul.png';
+import jGeilPart3 from '../../assets/images/characters/part3/JGeil.png';
+import holHorsePart3 from '../../assets/images/characters/part3/HolHorse.png';
+import nenaPart3 from '../../assets/images/characters/part3/NenaAvAnim.png';
+import zzPart3 from '../../assets/images/characters/part3/ZZAvAnim.png';
+import enyaPart3 from '../../assets/images/characters/part3/EnyaAvAnim.png';
+import steelyDanPart3 from '../../assets/images/characters/part3/SteelyDanAvAnim.png';
+import arabiaFatsPart3 from '../../assets/images/characters/part3/ArabiaFatsAvAnim.png';
+import mannishBoyPart3 from '../../assets/images/characters/part3/MannishAvAnim.png';
+import cameoPart3 from '../../assets/images/characters/part3/CameoAvAnim.png';
+import midlerPart3 from '../../assets/images/characters/part3/MidlerAvAnim.png';
+import nDoulPart3 from '../../assets/images/characters/part3/NdoulAvAnim.png';
+import oingoPart3 from '../../assets/images/characters/part3/OingoAvAnim.png';
+import boingoPart3 from '../../assets/images/characters/part3/BoingoAvAnim.png';
+import anubisPart3 from '../../assets/images/characters/part3/AnubisAvAnim.png';
+import chakaPart3 from '../../assets/images/characters/part3/ChakaAvAnim.png';
+import khanPart3 from '../../assets/images/characters/part3/KhanAvAnim.png';
+import mariahPart3 from '../../assets/images/characters/part3/MariahAvAnim.png';
+import alessiPart3 from '../../assets/images/characters/part3/AlessiAvAnim.png';
+import danielDArbyPart3 from '../../assets/images/characters/part3/DanielAvAnim.png';
+import petShopPart3 from '../../assets/images/characters/part3/PetShopAvAnim.png';
+import telenceDArbyPart3 from '../../assets/images/characters/part3/TelenceAvAnim.png';
+import vanillaIcePart3 from '../../assets/images/characters/part3/VanillaIceAvAnim.png';
+import holyKujoPart3 from '../../assets/images/characters/part3/HolyAvAnim.png';
+import merlaiAnnePart3 from '../../assets/images/characters/part3/MerlaiAnneAvAnim.png';
+import suziQPart3 from '../../assets/images/characters/part3/SuziAvAnim3.png';
+import rosesPart3 from '../../assets/images/characters/part3/RosesAvAnim.png';
+import malenaPart3 from '../../assets/images/characters/part3/MalenaAvAnim.png';
+import kennyGPart3 from '../../assets/images/characters/part3/KennyAvAnim.png';
+import nukesakuPart3 from '../../assets/images/characters/part3/NukesakuAvAnim.png';
+import wilsonPhillipsPart3 from '../../assets/images/characters/part3/WilsonPhillipsAvAnim.png';
+import cheriePolnareffPart3 from '../../assets/images/characters/part3/ChérieAvAnim.png';
 
 export const part3Characters: Character[] = [
   {
@@ -18,7 +62,7 @@ export const part3Characters: Character[] = [
   {
     id: 302,
     name: "Joseph Joestar",
-    image: "josephPart3",
+    image: josephPart3,
     gender: "Masculino",
     age: "60-80",
     hairColor: "Cinza",
@@ -31,7 +75,7 @@ export const part3Characters: Character[] = [
   {
     id: 303,
     name: "Muhammad Avdol",
-    image: "avdolPart3",
+    image: avdolPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -44,7 +88,7 @@ export const part3Characters: Character[] = [
   {
     id: 304,
     name: "Noriaki Kakyoin",
-    image: "kakyoinPart3",
+    image: kakyoinPart3,
     gender: "Masculino",
     age: "0-20",
     hairColor: "Vermelho",
@@ -57,7 +101,7 @@ export const part3Characters: Character[] = [
   {
     id: 305,
     name: "Jean Pierre Polnareff",
-    image: "polnareffPart3",
+    image: polnareffPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Prata",
@@ -70,7 +114,7 @@ export const part3Characters: Character[] = [
   {
     id: 306,
     name: "Iggy",
-    image: "iggyPart3",
+    image: iggyPart3,
     gender: "Masculino",
     age: "0-20",
     hairColor: "Marrom",
@@ -83,7 +127,7 @@ export const part3Characters: Character[] = [
   {
     id: 307,
     name: "DIO",
-    image: "dioPart3",
+    image: dioPart3,
     gender: "Masculino",
     age: "100+",
     hairColor: "Loiro",
@@ -96,7 +140,7 @@ export const part3Characters: Character[] = [
   {
     id: 308,
     name: "Gray Fly",
-    image: "grayFlyPart3",
+    image: grayFlyPart3,
     gender: "Masculino",
     age: "60-80",
     hairColor: "Cinza",
@@ -109,7 +153,7 @@ export const part3Characters: Character[] = [
   {
     id: 309,
     name: "Impostor Captain Tennille",
-    image: "tennillePart3",
+    image: tennillePart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -122,7 +166,7 @@ export const part3Characters: Character[] = [
   {
     id: 310,
     name: "Forever",
-    image: "foreverPart3",
+    image: foreverPart3,
     gender: "Masculino",
     age: "0-20",
     hairColor: "Marrom",
@@ -135,7 +179,7 @@ export const part3Characters: Character[] = [
   {
     id: 311,
     name: "Devo the Cursed",
-    image: "devoPart3",
+    image: devoPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -148,7 +192,7 @@ export const part3Characters: Character[] = [
   {
     id: 312,
     name: "Rubber Soul",
-    image: "rubberSoulPart3",
+    image: rubberSoulPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Loiro",
@@ -161,7 +205,7 @@ export const part3Characters: Character[] = [
   {
     id: 313,
     name: "J. Geil",
-    image: "jGeilPart3",
+    image: jGeilPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -174,7 +218,7 @@ export const part3Characters: Character[] = [
   {
     id: 314,
     name: "Hol Horse",
-    image: "holHorsePart3",
+    image: holHorsePart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Marrom",
@@ -187,7 +231,7 @@ export const part3Characters: Character[] = [
   {
     id: 315,
     name: "Nena",
-    image: "nenaPart3",
+    image: nenaPart3,
     gender: "Feminino",
     age: "20-40",
     hairColor: "Preto",
@@ -200,7 +244,7 @@ export const part3Characters: Character[] = [
   {
     id: 316,
     name: "ZZ",
-    image: "zzPart3",
+    image: zzPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -213,7 +257,7 @@ export const part3Characters: Character[] = [
   {
     id: 317,
     name: "Enya the Hag",
-    image: "enyaPart3",
+    image: enyaPart3,
     gender: "Feminino",
     age: "80-100",
     hairColor: "Branco",
@@ -226,7 +270,7 @@ export const part3Characters: Character[] = [
   {
     id: 318,
     name: "Steely Dan",
-    image: "steelyDanPart3",
+    image: steelyDanPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -239,7 +283,7 @@ export const part3Characters: Character[] = [
   {
     id: 319,
     name: "Arabia Fats",
-    image: "arabiaFatsPart3",
+    image: arabiaFatsPart3,
     gender: "Masculino",
     age: "40-60",
     hairColor: "Preto",
@@ -252,7 +296,7 @@ export const part3Characters: Character[] = [
   {
     id: 320,
     name: "Mannish Boy",
-    image: "mannishBoyPart3",
+    image: mannishBoyPart3,
     gender: "Masculino",
     age: "0-20",
     hairColor: "Preto",
@@ -265,7 +309,7 @@ export const part3Characters: Character[] = [
   {
     id: 321,
     name: "Cameo",
-    image: "cameoPart3",
+    image: cameoPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -278,7 +322,7 @@ export const part3Characters: Character[] = [
   {
     id: 322,
     name: "Midler",
-    image: "midlerPart3",
+    image: midlerPart3,
     gender: "Feminino",
     age: "20-40",
     hairColor: "Loiro",
@@ -291,7 +335,7 @@ export const part3Characters: Character[] = [
   {
     id: 323,
     name: "N'Doul",
-    image: "nDoulPart3",
+    image: nDoulPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -304,7 +348,7 @@ export const part3Characters: Character[] = [
   {
     id: 324,
     name: "Oingo",
-    image: "oingoPart3",
+    image: oingoPart3,
     gender: "Masculino",
     age: "0-20",
     hairColor: "Laranja",
@@ -317,7 +361,7 @@ export const part3Characters: Character[] = [
   {
     id: 325,
     name: "Boingo",
-    image: "boingoPart3",
+    image: boingoPart3,
     gender: "Masculino",
     age: "0-20",
     hairColor: "Preto",
@@ -330,7 +374,7 @@ export const part3Characters: Character[] = [
   {
     id: 326,
     name: "Anubis",
-    image: "anubisPart3",
+    image: anubisPart3,
     gender: "Masculino",
     age: "Antigo",
     hairColor: "Nenhum",
@@ -343,7 +387,7 @@ export const part3Characters: Character[] = [
   {
     id: 327,
     name: "Chaka",
-    image: "chakaPart3",
+    image: chakaPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -356,7 +400,7 @@ export const part3Characters: Character[] = [
   {
     id: 328,
     name: "Khan",
-    image: "khanPart3",
+    image: khanPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -369,7 +413,7 @@ export const part3Characters: Character[] = [
   {
     id: 329,
     name: "Mariah",
-    image: "mariahPart3",
+    image: mariahPart3,
     gender: "Feminino",
     age: "20-40",
     hairColor: "Preto",
@@ -382,7 +426,7 @@ export const part3Characters: Character[] = [
   {
     id: 330,
     name: "Alessi",
-    image: "alessiPart3",
+    image: alessiPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -395,7 +439,7 @@ export const part3Characters: Character[] = [
   {
     id: 331,
     name: "Daniel J. D'Arby",
-    image: "danielDArbyPart3",
+    image: danielDArbyPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -408,7 +452,7 @@ export const part3Characters: Character[] = [
   {
     id: 332,
     name: "Pet Shop",
-    image: "petShopPart3",
+    image: petShopPart3,
     gender: "Masculino",
     age: "Desconhecido",
     hairColor: "Azul",
@@ -421,7 +465,7 @@ export const part3Characters: Character[] = [
   {
     id: 333,
     name: "Telence T. D'Arby",
-    image: "telenceDArbyPart3",
+    image: telenceDArbyPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -434,7 +478,7 @@ export const part3Characters: Character[] = [
   {
     id: 334,
     name: "Vanilla Ice",
-    image: "vanillaIcePart3",
+    image: vanillaIcePart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Branco",
@@ -447,7 +491,7 @@ export const part3Characters: Character[] = [
   {
     id: 335,
     name: "Holy Kujo",
-    image: "holyKujoPart3",
+    image: holyKujoPart3,
     gender: "Feminino",
     age: "40-60",
     hairColor: "Marrom",
@@ -460,7 +504,7 @@ export const part3Characters: Character[] = [
   {
     id: 336,
     name: "Merlai Anne",
-    image: "merlaiAnnePart3",
+    image: merlaiAnnePart3,
     gender: "Feminino",
     age: "0-20",
     hairColor: "Preto",
@@ -473,7 +517,7 @@ export const part3Characters: Character[] = [
   {
     id: 337,
     name: "Suzi Q Joestar",
-    image: "suziQPart3",
+    image: suziQPart3,
     gender: "Feminino",
     age: "60-80",
     hairColor: "Cinza",
@@ -486,7 +530,7 @@ export const part3Characters: Character[] = [
   {
     id: 338,
     name: "Roses",
-    image: "rosesPart3",
+    image: rosesPart3,
     gender: "Masculino",
     age: "40-60",
     hairColor: "Preto",
@@ -499,7 +543,7 @@ export const part3Characters: Character[] = [
   {
     id: 339,
     name: "Malèna",
-    image: "malenaPart3",
+    image: malenaPart3,
     gender: "Feminino",
     age: "20-40",
     hairColor: "Preto",
@@ -512,7 +556,7 @@ export const part3Characters: Character[] = [
   {
     id: 340,
     name: "Kenny G.",
-    image: "kennyGPart3",
+    image: kennyGPart3,
     gender: "Masculino",
     age: "20-40",
     hairColor: "Preto",
@@ -525,7 +569,7 @@ export const part3Characters: Character[] = [
   {
     id: 341,
     name: "Nukesaku",
-    image: "nukesakuPart3",
+    image: nukesakuPart3,
     gender: "Masculino",
     age: "Desconhecido",
     hairColor: "Preto",
@@ -538,7 +582,7 @@ export const part3Characters: Character[] = [
   {
     id: 342,
     name: "Wilson Phillips",
-    image: "wilsonPhillipsPart3",
+    image: wilsonPhillipsPart3,
     gender: "Masculino",
     age: "40-60",
     hairColor: "Preto",
@@ -551,7 +595,7 @@ export const part3Characters: Character[] = [
   {
     id: 343,
     name: "Chérie Polnareff",
-    image: "cheriePolnareffPart3",
+    image: cheriePolnareffPart3,
     gender: "Feminino",
     age: "20-40",
     hairColor: "Loiro",
